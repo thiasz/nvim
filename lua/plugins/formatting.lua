@@ -10,7 +10,7 @@ return {
 				lua = { "stylua" },
 				graphql = { "prettierd" },
 				python = { "ruff" },
-				-- xml = { "xmlformatter" },
+				xml = { "xmlformatter" },
 				yaml = { "prettier" },
 			},
 		},
