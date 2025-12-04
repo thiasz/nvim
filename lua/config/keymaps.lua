@@ -15,10 +15,11 @@ vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>")
 
 -- Save and quit current file quicker
 vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = false, noremap = true })
-vim.keymap.set({ "n", "t" }, "<leader>q", ":q<cr>", { silent = false, noremap = true })
+-- vim.keymap.set({ "n", "t" }, "<leader>q", ":q<cr>", { silent = false, noremap = true })
 
 -- Little one from Primeagen to mass replace string in a file
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
+vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
+vim.keymap.set("n", "<leader>zz", ':%norm f,d$T:d0f_y0Pa <cr>:%norm$a touch<cr>ggVG"+y', { silent = false })
 
 -- Navigate through buffers
 vim.keymap.set("n", "<S-Right>", ":bnext<CR>", { silent = false })
@@ -45,6 +46,7 @@ vim.keymap.set("n", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
+vim.keymap.set("n", "<leader>a", 'ggVG"+y', { silent = false })
 
 -- Open buffer to the right
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
@@ -55,9 +57,15 @@ vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
 
 -- toggle inlayhints
 vim.keymap.set("n", "<leader>h", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay Hints Enabled" or "Inlay Hints Disabled")
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay Hints Enabled" or "Inlay Hints Disabled")
 end)
+
+-- navigate Quick Fix List
+vim.keymap.set("n", "<leader>q", ":copen<CR>", { desc = "open Quick Fix List" })
+vim.keymap.set("n", "<leader>qq", ":cclose<CR>", { desc = "close Quick Fix List" })
+-- vim.keymap.set("n", "<leader>qn", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
+-- vim.keymap.set("n", "<leader>qp", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
 
 -- comment string
 vim.keymap.set("n", "§", ":norm gcc<CR>j", { desc = "comment string" })

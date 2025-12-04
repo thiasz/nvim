@@ -64,7 +64,7 @@ return {
 			desc = "grep in current buffer",
 		},
 		{
-			"<leader>l",
+			"<leader>b",
 			function()
 				require("fzf-lua").buffers()
 			end,

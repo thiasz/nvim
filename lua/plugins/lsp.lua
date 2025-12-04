@@ -12,11 +12,11 @@ return {
 			callback = function(ev)
 				local opts = { buffer = ev.buf }
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "<leader><space>", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-				vim.keymap.set("n", "<leader>K", vim.lsp.buf.type_definition, opts)
-				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+				-- vim.keymap.set("n", "<leader><space>", vim.lsp.buf.hover, opts)
+				-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+				-- vim.keymap.set("n", "<leader>K", vim.lsp.buf.type_definition, opts)
+				-- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+				-- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
 				vim.keymap.set({ "n", "x" }, "<leader>ca", function()
 					require("tiny-code-action").code_action()

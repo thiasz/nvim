@@ -19,9 +19,9 @@ vim.o.ignorecase = true -- case-insensitive search
 vim.o.smartcase = true -- until search pattern contains upper case characters
 vim.o.incsearch = true -- enable highlighting search in progress
 
-vim.o.tabstop = 2 -- how many spaces tab inserts
-vim.o.softtabstop = 2 -- how many spaces tab inserts
-vim.o.shiftwidth = 2 -- controls number of spaces when using >> or << commands
+vim.o.tabstop = 4 -- how many spaces tab inserts
+vim.o.softtabstop = 4 -- how many spaces tab inserts
+vim.o.shiftwidth = 4 -- controls number of spaces when using >> or << commands
 vim.o.expandtab = true -- use appropriate number of spaces with tab
 vim.o.smartindent = true -- indenting correctly after {
 vim.o.autoindent = true -- copy indent from current line when starting new line
