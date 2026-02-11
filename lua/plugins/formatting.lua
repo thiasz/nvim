@@ -7,6 +7,7 @@ return {
 				lsp_format = "fallback",
 			},
 			formatters_by_ft = {
+				json = { "json_repair" },
 				lua = { "stylua" },
 				graphql = { "prettierd" },
 				python = { "ruff" },

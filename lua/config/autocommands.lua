@@ -66,3 +66,9 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
 		vim.opt_local.cursorline = false
 	end,
 })
+
+-- Set indentation to 2 spaces
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "yang" },
+	command = "setlocal shiftwidth=2 tabstop=2",
+})
