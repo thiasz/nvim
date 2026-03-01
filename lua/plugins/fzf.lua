@@ -43,21 +43,21 @@ return {
 			desc = "open quickfix list",
 		},
 		{
-			"<leader>ff",
+			"<leader>sf",
 			function()
 				require("fzf-lua").files()
 			end,
 			desc = "find files in the current directory",
 		},
 		{
-			"<leader>fl",
+			"<leader>sg",
 			function()
 				require("fzf-lua").live_grep()
 			end,
 			desc = "grep in files in the current directory",
 		},
 		{
-			"<leader>fg",
+			"<leader>sgc",
 			function()
 				require("fzf-lua").lgrep_curbuf()
 			end,

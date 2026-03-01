@@ -11,7 +11,7 @@ return {
 				lua = { "stylua" },
 				graphql = { "prettierd" },
 				python = { "ruff" },
-				-- xml = { "xmlformatter" },
+				-- robot = { "robotframework-robocop" },
 				xml = { "xmllint" },
 				yaml = { "prettier" },
 			},
