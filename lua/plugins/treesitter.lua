@@ -1,61 +1,45 @@
-return {
-	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
-	branch = "main",
-	build = ":TSUpdate",
-	opts = {
-		ensure_installed = {
-			"bash",
-			"c",
-			"css",
-			"diff",
-			"go",
-			"gomod",
-			"gowork",
-			"gosum",
-			"graphql",
-			"html",
-			"javascript",
-			"jinja",
-			"jinja_inline",
-			"jsdoc",
-			"json",
-			"json5",
-			"lua",
-			"luadoc",
-			"luap",
-			"markdown",
-			"markdown_inline",
-			"python",
-			"query",
-			"regex",
-			"robot",
-			"toml",
-			"tsx",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"xml",
-			"yaml",
-			"yang",
-		},
-	},
-	config = function(_, opts)
-		-- install parsers from custom opts.ensure_installed
-		if opts.ensure_installed and #opts.ensure_installed > 0 then
-			require("nvim-treesitter").install(opts.ensure_installed)
-			-- register and start parsers for filetypes
-			for _, parser in ipairs(opts.ensure_installed) do
-				local filetypes = parser -- In this case, parser is the filetype/language name
-				vim.treesitter.language.register(parser, filetypes)
+vim.pack.add({
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+})
 
-				vim.api.nvim_create_autocmd({ "FileType" }, {
-					pattern = filetypes,
-					callback = function(event)
-						vim.treesitter.start(event.buf, parser)
-					end,
-				})
-			end
-		end
-	end,
-}
+require("nvim-treesitter").setup({
+    install_dir = vim.fn.stdpath("data") .. "/site",
+    sync_install = false,
+    highlight = {
+        enable = true,
+        disable = "help",
+    },
+    indent = {
+        enable = true,
+    },
+    autopairs = {
+        enable = true,
+    },
+    modules = {},
+    ignore_install = {},
+})
+
+require("nvim-treesitter").install({
+    "bash",
+    "diff",
+    "jinja",
+    "jinja_inline",
+    "jsdoc",
+    "json",
+    "json5",
+    "lua",
+    "luadoc",
+    "luap",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "query",
+    "regex",
+    "robot",
+    "toml",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+    "yang",
+})
