@@ -10,6 +10,7 @@ require("mason-lspconfig").setup({})
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"json-repair",
+		-- "pyright",
 		"robotcode",
 		-- "robotframework-lsp",
 		"ruff",

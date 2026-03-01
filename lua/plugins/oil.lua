@@ -1,19 +1,19 @@
 vim.pack.add({
-  { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/echasnovski/mini.pick" },
-  { src = "https://github.com/echasnovski/mini.icons" },
-  { src = "https://github.com/echasnovski/mini.notify" },
-  { src = "https://github.com/echasnovski/mini.pairs" },
-  { src = "https://github.com/refractalize/oil-git-status.nvim" }
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/echasnovski/mini.pick" },
+	{ src = "https://github.com/echasnovski/mini.icons" },
+	{ src = "https://github.com/echasnovski/mini.notify" },
+	{ src = "https://github.com/echasnovski/mini.pairs" },
+	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
 })
 
 require("oil").setup({
-  win_options = {
-    signcolumn = "yes:2",
-  },
-  view_options = {
-    show_hidden = true,
-  },
+	win_options = {
+		signcolumn = "yes:2",
+	},
+	view_options = {
+		show_hidden = true,
+	},
 })
 
 require("mini.pick").setup()

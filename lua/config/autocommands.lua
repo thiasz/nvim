@@ -10,6 +10,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Set indentation to 2 spaces
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "yang" },
-	command = "setlocal shiftwidth=2 tabstop=2",
+	pattern = { "py", "robot", "resource" },
+	command = "setlocal shiftwidth=4 tabstop=4",
 })
