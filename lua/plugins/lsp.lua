@@ -1,11 +1,12 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"rachartier/tiny-code-action.nvim",
+		-- "rachartier/tiny-code-action.nvim",
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
-		vim.lsp.enable({ "lua_ls", "pyright", "robotframework_ls", "ruff" })
+		vim.lsp.enable({ "lua_ls", "pyright", "robotcode" })
+		-- vim.lsp.enable({ "lua_ls", "robotcode", "ruff" })
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -28,7 +29,7 @@ return {
 
 				vim.keymap.set("n", "<leader>k", function()
 					vim.diagnostic.open_float({
-						border = "rounded",
+						-- border = "rounded",
 					})
 				end, opts)
 			end,

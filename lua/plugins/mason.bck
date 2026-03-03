@@ -8,20 +8,14 @@ return {
 			require("mason").setup()
 			require("mason-tool-installer").setup({
 				ensure_installed = {
-					-- "black",
-					-- "isort",
-					-- "stylua",
-					-- "tailwindcss-language-server",
-					-- "ts_ls",
-					-- "graphql",
-					-- "json-lsp",
-					-- "lua_ls",
-					"prettier",
-					-- "prettierd",
-					"pyright",
-					-- "robotcode",
-					"ruff",
-					-- "xmlformatter",
+          "json-repair
+          "lua-language-server",
+          "prettier",
+          "pyright",
+          "robotcode",
+          "ruff",
+          "stylua",
+          "yaml-language-server",
 				},
 				auto_update = false,
 				run_on_start = true,

@@ -9,9 +9,7 @@ return {
 			formatters_by_ft = {
 				json = { "json_repair" },
 				lua = { "stylua" },
-				graphql = { "prettierd" },
 				python = { "ruff" },
-				-- robot = { "robotframework-robocop" },
 				xml = { "xmllint" },
 				yaml = { "prettier" },
 			},

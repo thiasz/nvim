@@ -1,13 +1,15 @@
 return {
 	"Saghen/blink.cmp",
 	dependencies = {
-		"L3MON4D3/LuaSnip",
+		-- "L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
-		-- "fang2hou/blink-copilot",
+		-- 	-- "fang2hou/blink-copilot",
 	},
+	version = "1.*",
+
 	---@type blink.cmp.Config
 	opts = {
-		snippets = { preset = "luasnip" },
+		-- snippets = { preset = "luasnip" },
 		keymap = {
 			preset = "default",
 			["<CR>"] = { "accept", "fallback" },
@@ -26,22 +28,27 @@ return {
 			documentation = { auto_show = true },
 		},
 		signature = { enabled = true },
-		fuzzy = { implementation = "lua" },
+		fuzzy = {
+			-- implementation = "lua",
+			implementation = "rust",
+			-- implementation = "prefer_rust_with_warning",
+			-- prebuilt_binaries = "download = true",
+		},
 		sources = {
 			default = {
-				"lazydev",
+				-- "lazydev",
 				"lsp",
 				"path",
-				"snippets",
+				-- "snippets",
 				"buffer",
 				-- "copilot",
 			},
 			providers = {
-				lazydev = {
-					name = "LazyDev",
-					module = "lazydev.integrations.blink",
-					score_offset = 100,
-				},
+				-- lazydev = {
+				-- 	name = "LazyDev",
+				-- 	module = "lazydev.integrations.blink",
+				-- 	score_offset = 100,
+				-- },
 				lsp = {
 					score_offset = 90,
 				},
@@ -55,7 +62,7 @@ return {
 		},
 	},
 	config = function(_, opts)
-		require("luasnip.loaders.from_vscode").load()
+		-- require("luasnip.loaders.from_vscode").load()
 		-- require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
 		require("blink.cmp").setup(opts)
 	end,
