@@ -27,6 +27,7 @@ vim.keymap.set("n", "<S-Left>", ":bprevious<CR>", { silent = false })
 
 -- Close currently active buffer
 vim.keymap.set("n", "<C-c>", ":bwipeout<CR>", { silent = false })
+vim.keymap.set("n", "<C-x>", ":bwi!<CR>", { silent = false })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -40,7 +41,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Paste without replacing paste with what you are highlighted over
-vim.keymap.set("n", "<leader>p", '"_dP')
+-- vim.keymap.set("n", "<leader>p", '"_dP')
+vim.keymap.set("n", "p", '"_dP')
+vim.keymap.set("n", "<leader>p", '"+p')
 
 -- Yank to system clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
@@ -63,9 +66,11 @@ end)
 
 -- navigate Quick Fix List
 vim.keymap.set("n", "<leader>q", ":copen<CR>", { desc = "open Quick Fix List" })
-vim.keymap.set("n", "<leader>qq", ":cclose<CR>", { desc = "close Quick Fix List" })
--- vim.keymap.set("n", "<leader>qn", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
--- vim.keymap.set("n", "<leader>qp", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
+vim.keymap.set("n", "<leader>qc", ":cclose<CR>", { desc = "close Quick Fix List" })
+-- vim.keymap.set("n", "<leader>n", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
+-- vim.keymap.set("n", "<leader>b", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
+vim.keymap.set("n", "<C-n>", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
+vim.keymap.set("n", "<C-p>", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
 
 -- comment string
 vim.keymap.set("n", "§", ":norm gcc<CR>j", { desc = "comment string" })

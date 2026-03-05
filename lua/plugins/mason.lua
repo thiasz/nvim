@@ -1,4 +1,25 @@
 return {
-	"mason-org/mason.nvim",
-	opts = {},
+	{
+		"mason-org/mason.nvim",
+		dependencies = {
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+		},
+		config = function()
+			require("mason").setup()
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"json-lsp",
+					"lua-language-server",
+					"prettier",
+					"pyright",
+					"robotcode",
+					"ruff",
+					"stylua",
+					"yaml-language-server",
+				},
+				auto_update = false,
+				run_on_start = true,
+			})
+		end,
+	},
 }

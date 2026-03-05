@@ -36,13 +36,6 @@ return {
 	},
 	keys = {
 		{
-			"<leader>fq",
-			function()
-				require("fzf-lua").quickfix()
-			end,
-			desc = "open quickfix list",
-		},
-		{
 			"<leader>sf",
 			function()
 				require("fzf-lua").files()
@@ -57,18 +50,11 @@ return {
 			desc = "grep in files in the current directory",
 		},
 		{
-			"<leader>sgc",
+			"<leader>sc",
 			function()
 				require("fzf-lua").lgrep_curbuf()
 			end,
 			desc = "grep in current buffer",
-		},
-		{
-			"<leader>b",
-			function()
-				require("fzf-lua").buffers()
-			end,
-			desc = "FZF Buffers",
 		},
 		{
 			"<leader>gs",
@@ -78,7 +64,7 @@ return {
 			desc = "GIT status",
 		},
 		{
-			"<leader>gbc",
+			"<leader>gb",
 			function()
 				require("fzf-lua").git_bcommits()
 			end,

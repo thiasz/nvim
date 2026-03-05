@@ -5,8 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
-		vim.lsp.enable({ "lua_ls", "pyright", "robotcode" })
-		-- vim.lsp.enable({ "lua_ls", "robotcode", "ruff" })
+		vim.lsp.enable({ "jsonls", "lua_ls", "pyright", "robotcode" })
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -23,13 +22,13 @@ return {
 					require("tiny-code-action").code_action()
 				end, { noremap = true, silent = true })
 
-				vim.keymap.set("n", "<leader>fo", function()
+				vim.keymap.set("n", "<leader>f", function()
 					vim.lsp.buf.format({ timeout_ms = 10000 })
 				end)
 
-				vim.keymap.set("n", "<leader>k", function()
+				vim.keymap.set("n", "<leader>d", function()
 					vim.diagnostic.open_float({
-						-- border = "rounded",
+						border = "rounded",
 					})
 				end, opts)
 			end,

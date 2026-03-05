@@ -8,6 +8,7 @@ return {
 			},
 			formatters_by_ft = {
 				json = { "prettier" },
+				-- json = { "jsonls" },
 				lua = { "stylua" },
 				python = { "ruff" },
 				xml = { "xmllint" },
@@ -15,10 +16,10 @@ return {
 			},
 		},
 	},
-	{
-		"windwp/nvim-ts-autotag",
-		config = function()
-			require("nvim-ts-autotag").setup()
-		end,
-	},
+	-- {
+	-- 	"windwp/nvim-ts-autotag",
+	-- 	config = function()
+	-- 		require("nvim-ts-autotag").setup()
+	-- 	end,
+	-- },
 }
