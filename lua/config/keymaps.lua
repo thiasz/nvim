@@ -41,8 +41,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Paste without replacing paste with what you are highlighted over
--- vim.keymap.set("n", "<leader>p", '"_dP')
-vim.keymap.set("n", "p", '"_dP')
+vim.keymap.set("n", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>p", '"+p')
 
 -- Yank to system clipboard

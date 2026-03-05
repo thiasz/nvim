@@ -8,7 +8,7 @@ return {
 			},
 			formatters_by_ft = {
 				json = { "prettier" },
-				-- json = { "jsonls" },
+				-- json = { "json_repair" },
 				lua = { "stylua" },
 				python = { "ruff" },
 				xml = { "xmllint" },
