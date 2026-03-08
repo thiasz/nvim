@@ -8,13 +8,13 @@ return {
 			require("mason").setup()
 			require("mason-tool-installer").setup({
 				ensure_installed = {
-					"json-lsp",
 					"lua-language-server",
 					"prettier",
 					"pyright",
 					"robotcode",
 					"ruff",
 					"stylua",
+					"xmlformatter",
 					"yaml-language-server",
 				},
 				auto_update = false,

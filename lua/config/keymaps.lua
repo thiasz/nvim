@@ -33,8 +33,10 @@ vim.keymap.set("n", "<C-x>", ":bwi!<CR>", { silent = false })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Center buffer when navigating up and down
-vim.keymap.set("n", "<S-Up>", "<C-u>zz")
-vim.keymap.set("n", "<S-Down>", "<C-d>zz")
+-- vim.keymap.set("n", "<S-Up>", "<C-u>zz")
+-- vim.keymap.set("n", "<S-Down>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
 -- Center buffer when progressing through search results
 vim.keymap.set("n", "n", "nzzzv")
@@ -52,13 +54,16 @@ vim.keymap.set("n", "<leader>a", 'ggVG"+y', { silent = false })
 
 -- Open buffer to the right
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>h", ":split<CR>")
+-- Maximize Split Window
+-- vim.keymap.set("n", "<C-z>", "<C-w>_")
 
 -- Move selection up and down
 vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
 
 -- toggle inlayhints
-vim.keymap.set("n", "<leader>h", function()
+vim.keymap.set("n", "<leader>H", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 	vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay Hints Enabled" or "Inlay Hints Disabled")
 end)
