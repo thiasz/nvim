@@ -18,8 +18,9 @@ vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = false, noremap = true })
 -- vim.keymap.set({ "n", "t" }, "<leader>q", ":q<cr>", { silent = false, noremap = true })
 
 -- Little one from Primeagen to mass replace string in a file
-vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
-vim.keymap.set("n", "<leader>zz", ':%norm f,d$T:d0f_y0Pa <cr>:%norm$a touch<cr>ggVG"+y', { silent = false })
+vim.keymap.set("n", "<leader>sx", [[:%s/<C-r><C-w>/<C-r><C-w>/gcI<Left><Left><Left>]], { silent = false })
+vim.keymap.set("n", "<leader>sz", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
+-- vim.keymap.set("n", "<leader>sz", ':%norm f,d$T:d0f_y0Pa <cr>:%norm$a touch<cr>ggVG"+y', { silent = false })
 
 -- Navigate through buffers
 vim.keymap.set("n", "<S-Right>", ":bnext<CR>", { silent = false })
