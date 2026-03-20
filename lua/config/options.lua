@@ -1,4 +1,5 @@
 vim.g.mapleader = " " -- space leader key
+-- vim.g.mapleader = vim.api.nvim_replace_termcodes("<BS>", false, false, true)
 vim.o.mouse = "" -- disable mouse in nvim
 
 vim.o.termguicolors = true -- enable 24-bit colors

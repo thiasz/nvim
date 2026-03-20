@@ -14,7 +14,7 @@ return {
 					"robotcode",
 					"ruff",
 					"stylua",
-					"xmlformatter",
+					-- "xmlformatter",
 					"yaml-language-server",
 				},
 				auto_update = false,
