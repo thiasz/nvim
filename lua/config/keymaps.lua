@@ -8,27 +8,27 @@ vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "<Esc>", ":nohl<CR>")
 
 -- Swap between split buffers
--- vim.keymap.set("n", "<C-Left>", ":wincmd h<CR>")
--- vim.keymap.set("n", "<C-Down>", ":wincmd j<CR>")
--- vim.keymap.set("n", "<C-Up>", ":wincmd k<CR>")
--- vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>")
-vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
+vim.keymap.set("n", "<C-Left>", ":wincmd h<CR>")
+vim.keymap.set("n", "<C-Down>", ":wincmd j<CR>")
+vim.keymap.set("n", "<C-Up>", ":wincmd k<CR>")
+vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>")
+-- vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
+-- vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
 
 -- Save and quit current file quicker
 vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = false, noremap = true })
 vim.keymap.set({ "n", "t" }, "<leader>q", ":q<cr>", { silent = false, noremap = true })
 
 -- Little one from Primeagen to mass replace string in a file
-vim.keymap.set("n", "<leader>sx", [[:%s/<C-r><C-w>/<C-r><C-w>/gcI<Left><Left><Left>]], { silent = false })
-vim.keymap.set("n", "<leader>sz", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
+vim.keymap.set("n", "<leader>ss", [[:%s/<C-r><C-w>/<C-r><C-w>/gcI<Left><Left><Left>]], { silent = false })
+vim.keymap.set("n", "<leader>sx", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
 -- vim.keymap.set("n", "<leader>sz", ':%norm f,d$T:d0f_y0Pa <cr>:%norm$a touch<cr>ggVG"+y', { silent = false })
 
 -- Navigate through buffers
--- vim.keymap.set("n", "<S-Right>", ":bnext<CR>", { silent = false })
--- vim.keymap.set("n", "<S-Left>", ":bprevious<CR>", { silent = false })
-vim.keymap.set("n", "<C-j>", ":bnext<CR>", { silent = false })
-vim.keymap.set("n", "<C-k>", ":bprevious<CR>", { silent = false })
+vim.keymap.set("n", "<S-Right>", ":bnext<CR>", { silent = false })
+vim.keymap.set("n", "<S-Left>", ":bprevious<CR>", { silent = false })
+-- vim.keymap.set("n", "<C-j>", ":bnext<CR>", { silent = false })
+-- vim.keymap.set("n", "<C-k>", ":bprevious<CR>", { silent = false })
 
 -- Close currently active buffer
 vim.keymap.set("n", "<C-c>", ":bwipeout<CR>", { silent = false })
@@ -57,9 +57,9 @@ vim.keymap.set("n", "<leader>a", 'ggVG"+y', { silent = false })
 
 -- Open buffer to the right
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
--- vim.keymap.set("n", "<leader>h", ":split<CR>")
+vim.keymap.set("n", "<leader>o", ":split<CR>")
 -- Maximize Split Window
--- vim.keymap.set("n", "<C-z>", "<C-w>_")
+vim.keymap.set("n", "<leader>t", "<C-w>_")
 
 -- Move selection up and down
 vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
