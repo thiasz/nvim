@@ -33,7 +33,7 @@ vim.o.splitright = true -- better splitting
 vim.o.wrap = false -- disable wrapping
 vim.o.breakindent = true -- prevent line wrapping
 
-vim.diagnostic.config({ virtual_text = true }) -- inline diagnostics
+vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 
 -- fix robot and resource comment string
 vim.api.nvim_create_autocmd("FileType", {

@@ -8,7 +8,7 @@ require("conform").setup({
 		lsp_format = "fallback",
 	},
 	formatters_by_ft = {
-		json = { "json_repair" },
+		json = { "prettier" },
 		lua = { "stylua" },
 		python = { "ruff" },
 		xml = { "xmllint" },

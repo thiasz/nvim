@@ -2,36 +2,31 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
-require("nvim-treesitter").setup({
-	install_dir = vim.fn.stdpath("data") .. "/site",
-	sync_install = false,
-	highlight = {
-		enable = true,
-		disable = "help",
-	},
-	indent = {
-		enable = true,
-	},
-	autopairs = {
-		enable = true,
-	},
-	modules = {},
-	ignore_install = {},
+vim.api.nvim_create_autocmd("PackChanged", {
+	pattern = "nvim-treesitter",
+	desc = "Run `:TSUpdate` after pack changed",
+	group = vim.api.nvim_create_augroup("treesitter_update", { clear = true }),
+	callback = function(e)
+		local kind, name = e.data.kind, e.data.spec.name
+		if kind == "install" or kind == "update" then
+			vim.cmd.packadd({ args = { name }, bang = false })
+			vim.cmd(":TSUpdate")
+		end
+	end,
 })
 
-require("nvim-treesitter").install({
+local ts = require("nvim-treesitter")
+
+ts.setup({
+	install_dir = vim.fn.stdpath("data") .. "/site",
+})
+
+local parsers = {
 	"bash",
 	"diff",
 	"jinja",
-	"jinja_inline",
-	"jsdoc",
 	"json",
-	"json5",
 	"lua",
-	"luadoc",
-	"luap",
-	"markdown",
-	"markdown_inline",
 	"python",
 	"query",
 	"regex",
@@ -42,4 +37,12 @@ require("nvim-treesitter").install({
 	"xml",
 	"yaml",
 	"yang",
+}
+ts.install(parsers)
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = parsers,
+	callback = function()
+		vim.treesitter.start()
+	end,
 })

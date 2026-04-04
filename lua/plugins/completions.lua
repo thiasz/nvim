@@ -1,15 +1,17 @@
 vim.pack.add({
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/Saghen/blink.cmp" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 })
 
 require("blink.cmp").setup({
 	opts = {
-		snippets = { preset = "luasnip" },
+		-- snippets = { preset = "luasnip" },
 		keymap = {
 			preset = "default",
 			["<CR>"] = { "accept", "fallback" },
-			["<C-Space>"] = { "show" },
+			["<S-Tab>"] = { "show" },
+			-- ["<C-Space>"] = { "show" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 		},
@@ -31,10 +33,16 @@ require("blink.cmp").setup({
 			default = {
 				"lsp",
 				"path",
-				"snippets",
+				-- "snippets",
 				"buffer",
 			},
 		},
-		fuzzy = { implementation = "prefer_rust_with_warning" },
+		fuzzy = {
+			implementation = "lua",
+			-- implementation = "rust",
+			-- implementation = "prefer_rust",
+			-- implementation = "prefer_rust_with_warning",
+			-- prebuilt_binaries = "download = true",
+		},
 	},
 })
