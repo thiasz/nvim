@@ -1,0 +1,11 @@
+require("config.options")
+require("config.keymaps")
+require("config.autocommands")
+
+require("plugins.colorscheme")
+require("plugins.completions")
+require("plugins.formatting")
+require("plugins.file_explorer")
+require("plugins.lualine")
+require("plugins.lsp")
+require("plugins.treesitter")
