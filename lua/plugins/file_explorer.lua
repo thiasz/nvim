@@ -4,11 +4,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
-	-- { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-	-- { src = "https://github.com/echasnovski/mini.pick" },
-	-- { src = "https://github.com/echasnovski/mini.icons" },
-	-- { src = "https://github.com/echasnovski/mini.notify" },
-	-- { src = "https://github.com/echasnovski/mini.pairs" },
+	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 })
 
 vim.api.nvim_create_autocmd("PackChanged", {
@@ -40,7 +36,7 @@ require("oil").setup({
 local bottom_pane_config = {
 	layout_strategy = "bottom_pane",
 	layout_config = {
-		height = 0.4,
+		height = 0.6,
 		prompt_position = "bottom",
 	},
 	border = true,
@@ -71,19 +67,21 @@ require("telescope").setup({
 		},
 	},
 })
--- require("telescope").load_extension("fzf")
+local fzf_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/telescope-fzf-native.nvim"
+local fzf_lib = fzf_path .. "/build/libfzf.so"
+if vim.uv.fs_stat(fzf_path) and not vim.uv.fs_stat(fzf_lib) then
+	vim.notify("Building telescope-fzf-native...", vim.log.levels.INFO)
+	local obj = vim.system({ "make" }, { cwd = fzf_path }):wait()
+	if obj.code == 0 then
+		vim.notify("Building telescope-fzf-native done", vim.log.levels.INFO)
+	else
+		vim.notify("Building telescope-fzf-native failed:\n" .. (obj.stderr or ""), vim.log.levels.ERROR)
+	end
+end
+require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")
 
--- require("mini.pick").setup()
--- require("mini.icons").setup()
--- require("mini.notify").setup()
--- require("mini.pairs").setup()
--- vim.ui.select = MiniPick.ui_select
-
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
--- vim.keymap.set("n", "<leader>sf", ":Pick files<CR>")
--- vim.keymap.set("n", "<leader>sg", ":Pick grep_live<CR>")
--- vim.keymap.set("n", "<leader>sh", ":Pick help<CR>")
 vim.keymap.set("n", "<leader>sf", ":Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>sg", ":Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<cr>")

@@ -22,16 +22,30 @@ require("mason-tool-installer").setup({
 	run_on_start = true,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("my.lsp", {}),
-	callback = function(args)
-		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+-- LspAttach keymaps
+vim.api.nvim_create_autocmd(
+	"LspAttach",
+	{ --  Use LspAttach autocommand to only map the following keys after the language server attaches to the current buffer
+		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+		callback = function(ev)
+			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
 
-		-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-		if client:supports_method("textDocument/completion") then
-			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-		end
-	end,
-})
+			local opts = { buffer = ev.buf }
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "<leader><space>", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
-vim.cmd("set completeopt+=noselect")
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+			vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+			vim.keymap.set("n", "<leader>d", function()
+				vim.diagnostic.open_float({
+					border = "rounded",
+				})
+			end, opts)
+		end,
+	}
+)
