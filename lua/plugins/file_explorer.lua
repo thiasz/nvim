@@ -1,4 +1,4 @@
-vim.pack.add({
+gcim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
@@ -87,3 +87,5 @@ vim.keymap.set("n", "<leader>sg", ":Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>sd", ":Telescope diagnostics<cr>")
 vim.keymap.set("n", "<leader>sb", ":Telescope buffers<cr>")
+vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<cr>")
+vim.keymap.set("n", "<leader>gbc", ":Telescope git_bcommits<cr>")
