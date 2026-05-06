@@ -1,5 +1,6 @@
 vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/stevearc/quicker.nvim" },
 	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -32,6 +33,8 @@ require("oil").setup({
 		show_hidden = true,
 	},
 })
+
+require("quicker").setup({})
 
 local bottom_pane_config = {
 	layout_strategy = "bottom_pane",

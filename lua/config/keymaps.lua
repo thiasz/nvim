@@ -2,10 +2,7 @@
 vim.keymap.set({ "n", "v" }, "<leader>", "<nop>")
 
 -- Redo remap
-vim.keymap.set("n", "U", "<C-r>")
-
--- after a search, press escape to clear highlights
-vim.keymap.set("n", "<Esc>", ":nohl<CR>")
+-- vim.keymap.set("n", "U", "<C-r>")
 
 -- Swap between split buffers
 vim.keymap.set("n", "<C-Left>", ":wincmd h<CR>")
@@ -25,8 +22,8 @@ vim.keymap.set("n", "<leader>sx", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- vim.keymap.set("n", "<leader>sz", ':%norm f,d$T:d0f_y0Pa <cr>:%norm$a touch<cr>ggVG"+y', { silent = false })
 
 -- Navigate through buffers
-vim.keymap.set("n", "<S-Right>", ":bnext<CR>", { silent = false })
-vim.keymap.set("n", "<S-Left>", ":bprevious<CR>", { silent = false })
+vim.keymap.set("n", "<S-Down>", ":bnext<CR>", { silent = false })
+vim.keymap.set("n", "<S-Up>", ":bprevious<CR>", { silent = false })
 -- vim.keymap.set("n", "<C-j>", ":bnext<CR>", { silent = false })
 -- vim.keymap.set("n", "<C-k>", ":bprevious<CR>", { silent = false })
 
@@ -56,8 +53,8 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>a", 'ggVG"+y', { silent = false })
 
 -- Open buffer to the right
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
-vim.keymap.set("n", "<leader>o", ":split<CR>")
+-- vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
+-- vim.keymap.set("n", "<leader>o", ":split<CR>")
 -- Maximize Split Window
 vim.keymap.set("n", "<leader>t", "<C-w>_")
 
@@ -66,18 +63,16 @@ vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
 
 -- toggle inlayhints
-vim.keymap.set("n", "<leader>H", function()
+vim.keymap.set("n", "<leader>h", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 	vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay Hints Enabled" or "Inlay Hints Disabled")
 end)
 
 -- navigate Quick Fix List
-vim.keymap.set("n", "<leader>x", ":copen<CR>", { desc = "open Quick Fix List" })
-vim.keymap.set("n", "<leader>c", ":cclose<CR>", { desc = "close Quick Fix List" })
--- vim.keymap.set("n", "<leader>n", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
--- vim.keymap.set("n", "<leader>b", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
+vim.keymap.set("n", "<C-l>", ":copen<CR>", { desc = "open Quick Fix List" })
+vim.keymap.set("n", "<C-k>", ":cclose<CR>", { desc = "close Quick Fix List" })
 vim.keymap.set("n", "<C-n>", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
-vim.keymap.set("n", "<C-p>", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
+vim.keymap.set("n", "<C-b>", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
 
 -- comment string
 vim.keymap.set("n", "&", ":norm gcc<CR>j", { desc = "comment string" })
