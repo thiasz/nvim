@@ -37,9 +37,11 @@ require("oil").setup({
 require("quicker").setup({})
 
 local bottom_pane_config = {
-	layout_strategy = "bottom_pane",
+	-- layout_strategy = "bottom_pane",
+	layout_strategy = "vertical",
 	layout_config = {
-		height = 0.6,
+		height = 0.99,
+		width = 0.99,
 		prompt_position = "bottom",
 	},
 	border = true,
