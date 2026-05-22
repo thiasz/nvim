@@ -9,12 +9,11 @@ vim.keymap.set("n", "<C-Left>", ":wincmd h<CR>")
 vim.keymap.set("n", "<C-Down>", ":wincmd j<CR>")
 vim.keymap.set("n", "<C-Up>", ":wincmd k<CR>")
 vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>")
--- vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
--- vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
 
 -- Save and quit current file quicker
 vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = false, noremap = true })
-vim.keymap.set({ "n", "t" }, "<leader>q", ":q<cr>", { silent = false, noremap = true })
+vim.keymap.set("n", "<leader>q", "<C-w>q")
+-- vim.keymap.set({ "n", "t" }, "<leader>q", ":q<cr>", { silent = false, noremap = true })
 
 -- Little one from Primeagen to mass replace string in a file
 vim.keymap.set("n", "<leader>ss", [[:%s/<C-r><C-w>/<C-r><C-w>/gcI<Left><Left><Left>]], { silent = false })
@@ -38,7 +37,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
-vim.keymap.set("n", "<C-b>", "<C-b>zz")
+-- vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
 -- Center buffer when progressing through search results
 vim.keymap.set("n", "n", "nzzzv")
@@ -49,20 +48,24 @@ vim.keymap.set("n", "<leader>p", '"_dP')
 -- vim.keymap.set("n", "<leader>p", '"+p')
 
 -- Yank to system clipboard
-vim.keymap.set("n", "<leader>y", '"+y')
-vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>Y", '"+Y')
+vim.keymap.set("n", "<leader>y", '"+y', { silent = false })
+vim.keymap.set("v", "<leader>y", '"+y', { silent = false })
+vim.keymap.set("n", "<leader>Y", '"+Y', { silent = false })
 vim.keymap.set("n", "<leader>a", 'ggVG"+y', { silent = false })
 
 -- Open buffer to the right
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
-vim.keymap.set("n", "<leader>h", ":split<CR>")
+vim.keymap.set("n", "<leader>o", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>u", ":split<CR>")
 -- Maximize Split Window
 -- vim.keymap.set("n", "<C-t>", "<C-w>_")
 
 -- Move selection up and down
-vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
+
+-- Indent and Unindent
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
 
 -- toggle inlayhints
 vim.keymap.set("n", "<leader>H", function()
