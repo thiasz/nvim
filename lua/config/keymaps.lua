@@ -28,7 +28,7 @@ vim.keymap.set("n", "<S-Right>", ":bprevious<CR>", { silent = false })
 
 -- Close currently active buffer
 vim.keymap.set("n", "<C-c>", ":bwipeout<CR>", { silent = false })
-vim.keymap.set("n", "<C-x>", ":bwi!<CR>", { silent = false })
+-- vim.keymap.set("n", "<C-x>", ":bwi!<CR>", { silent = false })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -56,12 +56,10 @@ vim.keymap.set("n", "<leader>a", 'ggVG"+y', { silent = false })
 -- Open buffer to the right
 vim.keymap.set("n", "<leader>o", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>u", ":split<CR>")
--- Maximize Split Window
--- vim.keymap.set("n", "<C-t>", "<C-w>_")
 
 -- Move selection up and down
-vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<S-K>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<S-J>", ":m '>+1<CR>gv=gv")
 
 -- Indent and Unindent
 vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
@@ -74,8 +72,8 @@ vim.keymap.set("n", "<leader>H", function()
 end)
 
 -- navigate Quick Fix List
-vim.keymap.set("n", "<C-l>", ":copen<CR>", { desc = "open Quick Fix List" })
-vim.keymap.set("n", "<C-k>", ":cclose<CR>", { desc = "close Quick Fix List" })
+-- vim.keymap.set("n", "<C-q>", ":copen<CR>", { desc = "open Quick Fix List" })
+-- vim.keymap.set("n", "<C-Q>", ":cclose<CR>", { desc = "close Quick Fix List" })
 vim.keymap.set("n", "<C-n>", ":cnext<CR>", { desc = "next Entry in Quick Fix List" })
 vim.keymap.set("n", "<C-m>", ":cprevious<CR>", { desc = "previous Entry in Quick Fix List" })
 
